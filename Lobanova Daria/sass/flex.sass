@@ -1,0 +1,217 @@
+// font family
+$dosis: 'Dosis', sans-serif
+
+//font-weights
+$extra-light: 200
+$light: 300
+$regular: 400
+$semi-bold: 500
+
+//font-sizes
+// 20px
+$font_small: 1em
+// 24px
+$font_regular: 1.2em
+// 36px
+$font_large: 1.8em
+// 101px
+$font_extra-large: 5.05em
+
+//colors
+$white: rgb(255, 255, 255)
+$red: rgb(119, 25, 33)
+$dark-red: rgb(46, 28, 37)
+$black: rgb(0, 0, 0)
+
+// devices 
+$small: 575px
+$medium: 768px
+$large: 992px
+$extra-large: 1200px
+
+*, 
+*:after
+    box-sizing: border-box
+    margin: 0
+    padding: 0
+
+.underline
+    content: ''
+    height: 1px
+    width: 100%
+    // margin: 10px
+    background-color: $red
+
+@mixin flex-container($justify, $align, $direction)
+    display: flex
+    justify-content: $justify
+    align-items: $align
+    flex-direction: $direction
+
+body
+    @include flex-container(center, center, row)
+    height: 100vh
+
+    font-family: $dosis
+    font-size: 20px
+
+    background: url("../img/background.png") no-repeat
+    background-size: cover
+
+    @media (max-width: $medium) 
+        height: 100%
+
+hr 
+    border: 1px solid $black
+    margin: inherit
+
+.widget
+    @include flex-container(space-between, initial, row)
+    background-color: $white
+    box-shadow: 0px 2px 21px 0px rgba(0, 0, 0, 0.44)
+    border-radius: 4px
+
+    @media (max-width: $medium)
+        flex-wrap: wrap
+        margin: 10%
+        hr
+            display: none
+
+    &__left-bar
+        @include flex-container(space-between, initial, column)
+        width: 100%
+        color: $white
+        text-align: center
+
+        background: url("../img/leftbar.png") no-repeat
+        background-size: cover
+
+        &__gradient
+            width: 100%
+            height: 50%
+            background: linear-gradient(-35deg, rgba(0,0,0,0.2) 47%, rgba(255,255,255,0.2) 50%)
+
+            &_repeat
+                @include flex-container(center, center, row)
+                width: 100%
+                height: 100%
+                background: linear-gradient(-35deg, rgba(0,0,0,0.2) 39%, rgba(255,255,255,0.2) 47%)
+
+                &__sun
+                    height: 150px
+                    // margin: 15%
+
+                    @media (max-width: $medium)
+                        height: 250px
+                        margin: 30%
+
+        &__weather
+            @include flex-container(center, center, row)
+            background-color: $dark-red
+            opacity: 0.89
+
+            font-size: $font_large
+            font-weight: $extra-light
+            white-space: nowrap
+            height: 25%
+
+        &__place
+            @include flex-container(center, center, row)
+            background-color: $red
+            opacity: 0.89
+
+            font-size: $font_regular
+            font-weight: $light
+            white-space: nowrap
+            height: 25%
+            padding: 0 15%
+
+        @media (max-width: $medium)
+            &__weather
+                font-size: $font_large + 0.5em
+            &__place
+                font-size: $font_regular + 0.5em
+
+    &__right-bar
+        @include flex-container(space-between, initial, column)
+        width: 100%
+        color: $red
+        text-align: center
+
+        margin: 30px 45px
+
+        &__temperature
+            @include flex-container(center, center, column)
+            font-size: $font_extra-large
+            font-weight: $extra-light
+            line-height: 1
+
+            @media (max-width: $medium)
+                font-size: $font_extra-large + 0.5em
+
+            &_justify 
+                text-align: justify
+                @include flex-container(center, center, column)
+
+            &::after
+                @extend .underline
+                margin: 20px
+
+        &__graph
+            @include flex-container(center, center, column)
+
+            &-img               
+                width: 100%
+
+                &_justify 
+                    width: 70%
+
+            &::after
+                @extend .underline
+                margin: 20px
+
+        &__forecast
+            @include flex-container(space-around, initial, row)
+
+            @media (max-width: $medium)
+                justify-content: space-evenly                
+
+            &__day
+                @include flex-container(space-between, initial, column)
+                font-size: $font_small
+                font-weight: $semi-bold
+                margin: 20px
+
+                @media (max-width: $medium) 
+                    font-size: $font_small + 0.5em
+
+                &__picture
+                    position: relative
+                    margin-bottom: 10px
+                    height: 50px
+                    width: 50px
+
+                    &__sun_red
+                        width: 40px
+                        height: 40px
+
+                    &__cloud
+                        position: absolute
+                        top: 10px
+                        right: 0
+                        z-index: 1
+                        width: 40px
+                        height: 40px
+
+                &__title
+                    @include flex-container(center, center, column)
+
+                    &::after
+                        @extend .underline
+                        margin: 5px 0
+
+                &__day-temp
+                    margin-bottom: 5px
+
+                &__night-temp
+                    color: $dark-red
