@@ -28,6 +28,11 @@ body {
     height: 100%;
   }
 }
+@media (max-width: 768px) and (max-width: 575px) {
+  body {
+    font-size: 12px;
+  }
+}
 
 hr {
   border: 1px solid black;
@@ -50,6 +55,13 @@ hr {
   }
   .widget hr {
     display: none;
+  }
+}
+@media (max-width: 768px) and (max-width: 575px) {
+  .widget {
+    margin: 0;
+    box-shadow: none;
+    height: 100vh;
   }
 }
 .widget__left-bar {
@@ -86,6 +98,11 @@ hr {
     margin: 30%;
   }
 }
+@media (max-width: 768px) and (max-width: 575px) {
+  .widget__left-bar__gradient_repeat__sun {
+    height: 150px;
+  }
+}
 .widget__left-bar__weather {
   display: flex;
   justify-content: center;
@@ -119,6 +136,14 @@ hr {
     font-size: 1.7em;
   }
 }
+@media (max-width: 575px) {
+  .widget__left-bar__weather {
+    font-size: 2.8em;
+  }
+  .widget__left-bar__place {
+    font-size: 2.2em;
+  }
+}
 .widget__right-bar {
   display: flex;
   justify-content: space-between;
@@ -141,6 +166,11 @@ hr {
 @media (max-width: 768px) {
   .widget__right-bar__temperature {
     font-size: 5.55em;
+  }
+}
+@media (max-width: 575px) {
+  .widget__right-bar__temperature {
+    font-size: 6.05em;
   }
 }
 .widget__right-bar__temperature_justify {
@@ -191,6 +221,11 @@ hr {
 @media (max-width: 768px) {
   .widget__right-bar__forecast__day {
     font-size: 1.5em;
+  }
+}
+@media (max-width: 575px) {
+  .widget__right-bar__forecast__day {
+    font-size: 2em;
   }
 }
 .widget__right-bar__forecast__day__picture {

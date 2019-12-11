@@ -1,7 +1,7 @@
 // font family
 $dosis: 'Dosis', sans-serif
 
-//font-weights
+//font weights
 $extra-light: 200
 $light: 300
 $regular: 400
@@ -26,8 +26,8 @@ $black: rgb(0, 0, 0)
 // devices 
 $small: 575px
 $medium: 768px
-$large: 992px
-$extra-large: 1200px
+// $large: 992px
+// $extra-large: 1200px
 
 *, 
 *:after
@@ -39,7 +39,6 @@ $extra-large: 1200px
     content: ''
     height: 1px
     width: 100%
-    // margin: 10px
     background-color: $red
 
 @mixin flex-container($justify, $align, $direction)
@@ -61,6 +60,9 @@ body
     @media (max-width: $medium) 
         height: 100%
 
+        @media (max-width: $small)
+            font-size: 12px
+
 hr 
     border: 1px solid $black
     margin: inherit
@@ -76,6 +78,11 @@ hr
         margin: 10%
         hr
             display: none
+
+        @media (max-width: $small)
+            margin: 0
+            box-shadow: none
+            height: 100vh
 
     &__left-bar
         @include flex-container(space-between, initial, column)
@@ -99,11 +106,13 @@ hr
 
                 &__sun
                     height: 150px
-                    // margin: 15%
 
                     @media (max-width: $medium)
                         height: 250px
                         margin: 30%
+
+                        @media (max-width: $small)
+                            height: 150px
 
         &__weather
             @include flex-container(center, center, row)
@@ -132,6 +141,12 @@ hr
             &__place
                 font-size: $font_regular + 0.5em
 
+        @media (max-width: $small)
+            &__weather
+                font-size: $font_large + 1em
+            &__place
+                font-size: $font_regular + 1em
+
     &__right-bar
         @include flex-container(space-between, initial, column)
         width: 100%
@@ -148,6 +163,9 @@ hr
 
             @media (max-width: $medium)
                 font-size: $font_extra-large + 0.5em
+
+            @media (max-width: $small)
+                font-size: $font_extra-large + 1em
 
             &_justify 
                 text-align: justify
@@ -184,6 +202,9 @@ hr
 
                 @media (max-width: $medium) 
                     font-size: $font_small + 0.5em
+
+                @media (max-width: $small)
+                    font-size: $font_small + 1em
 
                 &__picture
                     position: relative
