@@ -1,2 +1,209 @@
 @import "variables.sass"
 @import "common.sass"
+
+@mixin grid-container
+    display: grid
+
+body
+    @include grid-container
+    
+    height: 100vh
+
+    font-family: $dosis
+    font-size: 20px
+
+    background: url("../img/background.png") no-repeat
+    background-size: cover
+
+    @media (max-width: $medium) 
+        height: 100%
+
+        @media (max-width: $small)
+            font-size: 12px
+
+hr 
+    border: 1px solid $black
+    margin: inherit
+
+.widget
+    place-self: center
+    @include grid-container
+    grid-template-columns: 1fr 1px 1fr
+
+    background-color: $white
+    box-shadow: 0px 2px 21px 0px rgba(0, 0, 0, 0.44)
+    border-radius: 4px
+
+    @media (max-width: $medium)
+        flex-wrap: wrap
+        margin: 10%
+        hr
+            display: none
+
+        @media (max-width: $small)
+            margin: 0
+            box-shadow: none
+            height: 100vh
+
+    &__left-bar
+        @include grid-container
+        grid-template-rows: 2fr 1fr 1fr
+        width: 100%
+        color: $white
+        text-align: center
+
+        background: url("../img/leftbar.png") no-repeat
+        background-size: cover
+
+        &__gradient
+            width: 100%
+            height: 100%
+            background: linear-gradient(-35deg, rgba(0,0,0,0.2) 47%, rgba(255,255,255,0.2) 50%)
+
+            &_repeat
+                // @include flex-container(center, center, row)
+                width: inherit
+                height: inherit
+                background: linear-gradient(-35deg, rgba(0,0,0,0.2) 39%, rgba(255,255,255,0.2) 47%)
+
+                &__sun
+                    height: 150px
+
+                    @media (max-width: $medium)
+                        height: 250px
+                        margin: 30%
+
+                        @media (max-width: $small)
+                            height: 150px
+
+        &__weather
+            // @include flex-container(center, center, row)
+            background-color: $dark-red
+            opacity: 0.89
+
+            font-size: $font_large
+            font-weight: $extra-light
+            white-space: nowrap
+
+        &__place
+            // @include flex-container(center, center, row)
+            background-color: $red
+            opacity: 0.89
+
+            font-size: $font_regular
+            font-weight: $light
+            white-space: nowrap
+            padding: 0 15%
+
+        @media (max-width: $medium)
+            &__weather
+                font-size: $font_large + 0.5em
+            &__place
+                font-size: $font_regular + 0.5em
+
+        @media (max-width: $small)
+            &__weather
+                font-size: $font_large + 1em
+            &__place
+                font-size: $font_regular + 1em
+
+    &__right-bar
+        @include grid-container
+        grid-template-rows: 1fr 1fr auto
+        color: $red
+        text-align: center
+
+        margin: 30px 45px
+
+        &__temperature
+            @include grid-container
+            grid-template-rows: 1fr 
+            align-self: center
+
+            font-size: $font_extra-large
+            font-weight: $extra-light
+            line-height: 1
+
+            @media (max-width: $medium)
+                font-size: $font_extra-large + 0.5em
+
+            @media (max-width: $small)
+                font-size: $font_extra-large + 1em
+
+            &_justify 
+                align-self: center
+
+            &::after
+                @extend .underline
+                margin: 20px 0
+
+        &__graph
+            @include grid-container
+            grid-template-rows: 1fr 
+            align-self: center
+
+            &-img               
+                width: 100%
+
+                &_justify 
+                    width: 70%
+
+            &::after
+                @extend .underline
+                margin: 20px 0
+
+        &__future-days
+            @include grid-container
+            grid-template-columns: 1fr 1fr 1fr
+            grid-column-gap: 20px
+            // justify-content: space-between
+
+            @media (max-width: $medium)
+                justify-content: space-evenly                
+
+            &__item
+                @include grid-container
+                grid-template-rows: auto 1.3fr 1fr 1fr
+                
+                font-size: $font_small
+                font-weight: $semi-bold
+                margin: 20px
+
+                @media (max-width: $medium) 
+                    font-size: $font_small + 0.5em
+
+                @media (max-width: $small)
+                    font-size: $font_small + 1em
+
+                &__picture
+                    align-self: center
+
+                    position: relative
+                    margin-bottom: 10px
+
+                    &__sun_red
+                        width: 40px
+                        height: 40px
+
+                    &__cloud
+                        position: absolute
+                        top: 10px
+                        right: 0
+                        z-index: 1
+                        width: 40px
+                        height: 40px
+
+                &__title
+                    align-self: center
+
+                    &::after
+                        @extend .underline
+                        margin: 5px 0
+
+                &__day-temp
+                    align-self: center
+                    margin-bottom: 5px
+
+                &__night-temp
+                    align-self: center
+                    color: $dark-red

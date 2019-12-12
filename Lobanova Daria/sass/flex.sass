@@ -148,13 +148,13 @@ hr
                 @extend .underline
                 margin: 20px
 
-        &__forecast
+        &__future-days
             @include flex-container(space-around, initial, row)
 
             @media (max-width: $medium)
                 justify-content: space-evenly                
 
-            &__day
+            &__item
                 @include flex-container(space-between, initial, column)
                 font-size: $font_small
                 font-weight: $semi-bold
