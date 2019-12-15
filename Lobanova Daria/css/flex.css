@@ -65,7 +65,6 @@ hr {
   .widget {
     margin: 0;
     box-shadow: none;
-    height: 100vh;
   }
 }
 .widget__left-bar {
