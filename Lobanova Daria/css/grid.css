@@ -53,6 +53,7 @@ hr {
     grid-template-columns: auto;
     grid-template-rows: auto auto;
     margin: 10%;
+    width: 80%;
   }
   .widget hr {
     display: none;
@@ -62,7 +63,6 @@ hr {
   .widget {
     margin: 0;
     box-shadow: none;
-    height: 100vh;
     width: 100%;
   }
 }
@@ -121,7 +121,6 @@ hr {
   font-size: 1.2em;
   font-weight: 300;
   white-space: nowrap;
-  padding: 0;
 }
 @media (max-width: 768px) {
   .widget__left-bar__weather {
@@ -130,7 +129,6 @@ hr {
   .widget__left-bar__place {
     font-size: 1.7em;
     width: 100%;
-    padding: 0;
   }
 }
 @media (max-width: 575px) {
@@ -140,7 +138,6 @@ hr {
   .widget__left-bar__place {
     font-size: 2.2em;
     width: 100%;
-    padding: 0;
   }
 }
 .widget__right-bar {
