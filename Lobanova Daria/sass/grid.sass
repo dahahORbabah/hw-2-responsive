@@ -5,8 +5,7 @@
     display: grid
 
 body
-    @include grid-container
-    
+    @include grid-container    
     height: 100vh
 
     font-family: $dosis
@@ -15,11 +14,11 @@ body
     background: url("../img/background.png") no-repeat
     background-size: cover
 
-    @media (max-width: $medium) 
-        height: 100%
+    @media (max-width: $medium)
+        height: 100%        
 
-        @media (max-width: $small)
-            font-size: 12px
+    @media (max-width: $small)
+        font-size: 12px
 
 hr 
     border: 1px solid $black
@@ -35,7 +34,8 @@ hr
     border-radius: 4px
 
     @media (max-width: $medium)
-        flex-wrap: wrap
+        grid-template-columns: auto
+        grid-template-rows: auto auto
         margin: 10%
         hr
             display: none
@@ -44,6 +44,7 @@ hr
             margin: 0
             box-shadow: none
             height: 100vh
+            width: 100%
 
     &__left-bar
         @include grid-container
@@ -61,7 +62,10 @@ hr
             background: linear-gradient(-35deg, rgba(0,0,0,0.2) 47%, rgba(255,255,255,0.2) 50%)
 
             &_repeat
-                // @include flex-container(center, center, row)
+                @include grid-container
+                justify-content: center
+                align-items: center
+
                 width: inherit
                 height: inherit
                 background: linear-gradient(-35deg, rgba(0,0,0,0.2) 39%, rgba(255,255,255,0.2) 47%)
@@ -70,14 +74,17 @@ hr
                     height: 150px
 
                     @media (max-width: $medium)
-                        height: 250px
-                        margin: 30%
+                        height: 200px
+                        margin: 20% 0
 
-                        @media (max-width: $small)
-                            height: 150px
+                    @media (max-width: $small)
+                        height: 150px
 
         &__weather
-            // @include flex-container(center, center, row)
+            @include grid-container
+            justify-content: center
+            align-items: center
+
             background-color: $dark-red
             opacity: 0.89
 
@@ -86,26 +93,33 @@ hr
             white-space: nowrap
 
         &__place
-            // @include flex-container(center, center, row)
+            @include grid-container
+            justify-content: center
+            align-items: center
+
             background-color: $red
             opacity: 0.89
 
             font-size: $font_regular
             font-weight: $light
             white-space: nowrap
-            padding: 0 15%
+            padding: 0 
 
         @media (max-width: $medium)
             &__weather
                 font-size: $font_large + 0.5em
             &__place
                 font-size: $font_regular + 0.5em
+                width: 100%
+                padding: 0
 
         @media (max-width: $small)
             &__weather
                 font-size: $font_large + 1em
             &__place
                 font-size: $font_regular + 1em
+                width: 100%
+                padding: 0
 
     &__right-bar
         @include grid-container
@@ -113,7 +127,10 @@ hr
         color: $red
         text-align: center
 
-        margin: 30px 45px
+        margin: 40px 45px
+
+        @media (max-width: $medium)
+            margin: 50px 45px
 
         &__temperature
             @include grid-container
@@ -154,9 +171,9 @@ hr
 
         &__future-days
             @include grid-container
-            grid-template-columns: 1fr 1fr 1fr
+            grid-template-columns: auto auto auto
             grid-column-gap: 20px
-            // justify-content: space-between
+            justify-content: space-between
 
             @media (max-width: $medium)
                 justify-content: space-evenly                
@@ -167,13 +184,14 @@ hr
                 
                 font-size: $font_small
                 font-weight: $semi-bold
-                margin: 20px
 
                 @media (max-width: $medium) 
                     font-size: $font_small + 0.5em
+                    margin: 0
 
                 @media (max-width: $small)
                     font-size: $font_small + 1em
+                    margin: 0 10px
 
                 &__picture
                     align-self: center
@@ -194,6 +212,7 @@ hr
                         height: 40px
 
                 &__title
+                    @include grid-container
                     align-self: center
 
                     &::after

@@ -5,7 +5,11 @@
   padding: 0;
 }
 
-.underline, .widget__right-bar__forecast__day__title::after, .widget__right-bar__graph::after, .widget__right-bar__temperature::after {
+ul {
+  list-style: none;
+}
+
+.underline, .widget__right-bar__future-days__item__title::after, .widget__right-bar__graph::after, .widget__right-bar__temperature::after {
   content: "";
   height: 1px;
   width: 100%;
@@ -198,18 +202,18 @@ hr {
 .widget__right-bar__graph::after {
   margin: 20px;
 }
-.widget__right-bar__forecast {
+.widget__right-bar__future-days {
   display: flex;
   justify-content: space-around;
   align-items: initial;
   flex-direction: row;
 }
 @media (max-width: 768px) {
-  .widget__right-bar__forecast {
+  .widget__right-bar__future-days {
     justify-content: space-evenly;
   }
 }
-.widget__right-bar__forecast__day {
+.widget__right-bar__future-days__item {
   display: flex;
   justify-content: space-between;
   align-items: initial;
@@ -219,26 +223,26 @@ hr {
   margin: 20px;
 }
 @media (max-width: 768px) {
-  .widget__right-bar__forecast__day {
+  .widget__right-bar__future-days__item {
     font-size: 1.5em;
   }
 }
 @media (max-width: 575px) {
-  .widget__right-bar__forecast__day {
+  .widget__right-bar__future-days__item {
     font-size: 2em;
   }
 }
-.widget__right-bar__forecast__day__picture {
+.widget__right-bar__future-days__item__picture {
   position: relative;
   margin-bottom: 10px;
   height: 50px;
   width: 50px;
 }
-.widget__right-bar__forecast__day__picture__sun_red {
+.widget__right-bar__future-days__item__picture__sun_red {
   width: 40px;
   height: 40px;
 }
-.widget__right-bar__forecast__day__picture__cloud {
+.widget__right-bar__future-days__item__picture__cloud {
   position: absolute;
   top: 10px;
   right: 0;
@@ -246,19 +250,19 @@ hr {
   width: 40px;
   height: 40px;
 }
-.widget__right-bar__forecast__day__title {
+.widget__right-bar__future-days__item__title {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
-.widget__right-bar__forecast__day__title::after {
+.widget__right-bar__future-days__item__title::after {
   margin: 5px 0;
 }
-.widget__right-bar__forecast__day__day-temp {
+.widget__right-bar__future-days__item__day-temp {
   margin-bottom: 5px;
 }
-.widget__right-bar__forecast__day__night-temp {
+.widget__right-bar__future-days__item__night-temp {
   color: #2e1c25;
 }
 

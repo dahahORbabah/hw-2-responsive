@@ -29,7 +29,7 @@ body {
     height: 100%;
   }
 }
-@media (max-width: 768px) and (max-width: 575px) {
+@media (max-width: 575px) {
   body {
     font-size: 12px;
   }
@@ -50,7 +50,8 @@ hr {
 }
 @media (max-width: 768px) {
   .widget {
-    flex-wrap: wrap;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
     margin: 10%;
   }
   .widget hr {
@@ -62,6 +63,7 @@ hr {
     margin: 0;
     box-shadow: none;
     height: 100vh;
+    width: 100%;
   }
 }
 .widget__left-bar {
@@ -79,6 +81,9 @@ hr {
   background: linear-gradient(-35deg, rgba(0, 0, 0, 0.2) 47%, rgba(255, 255, 255, 0.2) 50%);
 }
 .widget__left-bar__gradient_repeat {
+  display: grid;
+  justify-content: center;
+  align-items: center;
   width: inherit;
   height: inherit;
   background: linear-gradient(-35deg, rgba(0, 0, 0, 0.2) 39%, rgba(255, 255, 255, 0.2) 47%);
@@ -88,16 +93,19 @@ hr {
 }
 @media (max-width: 768px) {
   .widget__left-bar__gradient_repeat__sun {
-    height: 250px;
-    margin: 30%;
+    height: 200px;
+    margin: 20% 0;
   }
 }
-@media (max-width: 768px) and (max-width: 575px) {
+@media (max-width: 575px) {
   .widget__left-bar__gradient_repeat__sun {
     height: 150px;
   }
 }
 .widget__left-bar__weather {
+  display: grid;
+  justify-content: center;
+  align-items: center;
   background-color: #2e1c25;
   opacity: 0.89;
   font-size: 1.8em;
@@ -105,12 +113,15 @@ hr {
   white-space: nowrap;
 }
 .widget__left-bar__place {
+  display: grid;
+  justify-content: center;
+  align-items: center;
   background-color: #771921;
   opacity: 0.89;
   font-size: 1.2em;
   font-weight: 300;
   white-space: nowrap;
-  padding: 0 15%;
+  padding: 0;
 }
 @media (max-width: 768px) {
   .widget__left-bar__weather {
@@ -118,6 +129,8 @@ hr {
   }
   .widget__left-bar__place {
     font-size: 1.7em;
+    width: 100%;
+    padding: 0;
   }
 }
 @media (max-width: 575px) {
@@ -126,6 +139,8 @@ hr {
   }
   .widget__left-bar__place {
     font-size: 2.2em;
+    width: 100%;
+    padding: 0;
   }
 }
 .widget__right-bar {
@@ -133,7 +148,12 @@ hr {
   grid-template-rows: 1fr 1fr auto;
   color: #771921;
   text-align: center;
-  margin: 30px 45px;
+  margin: 40px 45px;
+}
+@media (max-width: 768px) {
+  .widget__right-bar {
+    margin: 50px 45px;
+  }
 }
 .widget__right-bar__temperature {
   display: grid;
@@ -175,8 +195,9 @@ hr {
 }
 .widget__right-bar__future-days {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: auto auto auto;
   grid-column-gap: 20px;
+  justify-content: space-between;
 }
 @media (max-width: 768px) {
   .widget__right-bar__future-days {
@@ -188,16 +209,17 @@ hr {
   grid-template-rows: auto 1.3fr 1fr 1fr;
   font-size: 1em;
   font-weight: 500;
-  margin: 20px;
 }
 @media (max-width: 768px) {
   .widget__right-bar__future-days__item {
     font-size: 1.5em;
+    margin: 0;
   }
 }
 @media (max-width: 575px) {
   .widget__right-bar__future-days__item {
     font-size: 2em;
+    margin: 0 10px;
   }
 }
 .widget__right-bar__future-days__item__picture {
@@ -218,6 +240,7 @@ hr {
   height: 40px;
 }
 .widget__right-bar__future-days__item__title {
+  display: grid;
   align-self: center;
 }
 .widget__right-bar__future-days__item__title::after {
